@@ -12,8 +12,8 @@ const actions = {
 const view = (state, actions) => (
   <div className="container">
     <div className="container-border center">
-        <div className="carousel" style={transform = "translateX(" + state.index*500 + "px" +")"}>
-            <img src="./images/photo1.png"/>
+        <div className="carousel" style={"transform:translateX(" + state.index*500 + "px)"}>
+      <img src="./images/photo1.png"/>
 			<img src="./images/photo2.png"/>
 			<img src="./images/photo3.png"/>
 			<img src="./images/photo4.png"/>
