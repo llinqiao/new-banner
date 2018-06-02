@@ -6,7 +6,8 @@ const state = {
 }
 
 const actions = {
-  next: function(value){
+  next: value => state => ({ index: state.index - value }),
+  /*function(value){
     return(
       function(state){
         var newIndex;
@@ -21,9 +22,11 @@ const actions = {
         return obj;
       } 
     )
-  },
+  },*/
 
-  previous:function(value){
+  previous:value => state => ({ index: state.index + value })
+}
+  /*function(value){
     return(
       function(state){
         var nexIndex;
@@ -39,7 +42,7 @@ const actions = {
       }
     )
   }
-}
+}*/
 
 const view = (state, actions) => (
   <div className="container">
