@@ -3,7 +3,6 @@ import { h, app } from "hyperapp"
 const state = {
   index: 0,
   amount: 4,
-
 }
 
 const actions = {
@@ -51,8 +50,8 @@ const view = (state, actions) => (
 			    <img src="./images/photo3.png"/>
 			    <img src="./images/photo4.png"/>
         </div>
-        <button className="arrow arrow-right" onclick={() => actions.next(1)}>右边</button>
-        <button className="arrow arrow-right" onclick={() => actions.previous(1)}>左边</button>
+        <button className="arrow right-arrow" onclick={() => actions.next(1)}>右边</button>
+        <button className="arrow left-arrow" onclick={() => actions.previous(1)}>左边</button>
     </div>
   </div>
 )
