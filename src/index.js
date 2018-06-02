@@ -2,7 +2,7 @@ import { h, app } from "hyperapp"
 
 const state = {
   index: 0,
-  amount: 3,
+  amount: 4,
 
 }
 
@@ -11,7 +11,7 @@ const actions = {
     return(
       function(state){
         var newIndex;
-        if(newIndex=-state.amount){
+        if(newIndex=-state.amount+1){
           newIndex=0
         }else{
           newIndex=state.index+1
@@ -29,7 +29,7 @@ const actions = {
       function(state){
         var nexIndex;
         if(newIndex=0){
-          newIndex=-state.amount
+          newIndex=-state.amount+1
         }else{
           newIndex=state.index-1
         }
