@@ -2,6 +2,13 @@ body{
 	margin: 0px;
 }
 
+span{
+        cursor:pointer;
+        border-radius: 25px;
+        background-color: green;
+	margin: 5px;
+}
+
 .center{
 	margin: 0 auto;
 }
@@ -25,6 +32,22 @@ body{
 	height: 500px;
 	font-size: 0;
 }
+
+.buttons {
+	position: absolute;
+	width: 100px;
+	height: 30px;
+	right: 200px;
+	bottom: 20px;
+	z-index: 2;
+	font-size: 25px;
+	color: white;
+}
+
+.onTerm {
+	background-color: red;
+}
+
 
 .arrow{
 	position: absolute;
