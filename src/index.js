@@ -2,15 +2,15 @@ import { h, app } from "hyperapp"
 
 const state = {
   index: 0,
-  amount: 4,
+  imgList:["./images/photo1.png","./images/photo2.png","./images/photo3.png","./images/photo4.png"]
 }
 
 const actions = {
-  next: function(value){
+  next: function(){
     return(
       function(state){
         var newIndex;
-        if(state.index>=state.amount-1){
+        if(state.index>=state.imgList.length-1){
           newIndex=0
         }else{
           newIndex=state.index+1
@@ -23,12 +23,12 @@ const actions = {
     )
   },
 
-  previous:function(value){
+  previous:function(){
     return(
       function(state){
         var newIndex;
         if(state.index<=0){
-          newIndex=state.amount-1
+          newIndex=state.imgList.length-1
         }else{
           newIndex=state.index-1
         }
@@ -40,36 +40,43 @@ const actions = {
     )
   },
 
-  /*second:function(value){
+  setIndex:function(value){
     return(
       function(state){
-        index:value-1
-      }
+       var obj={
+         index:value
+        }
+       return obj;
+      } 
     )
-  }*/
+  }
+
 }
 
 const view = (state, actions) => (
   <div className="container">
+  <div className="code-box center">
     <div className="container-border center">
         <div className="carousel"
          style={{
           transform: "translateX(" + -1*state.index*500 + "px)"
           }}>
-          <img src="./images/photo1.png"/>
-			    <img src="./images/photo2.png"/>
-			    <img src="./images/photo3.png"/>
-			    <img src="./images/photo4.png"/>
+          {state.imgList.map(item =>{
+            return<img src= {item}/>
+          })}
         </div>
-        <button className="arrow right-arrow" onclick={() => actions.next(1)}>右边</button>
-        <button className="arrow left-arrow" onclick={() => actions.previous(1)}>左边</button>
+          <img className="arrow right-arrow" onclick={() => actions.next()} src="./images/photo6.png"/>
+          <img className="arrow left-arrow" onclick={() => actions.previous()} src="./images/photo5.png"/>
         <div class="buttons">
-				  <span class="term onTerm">1</span>
-				  <span class="term  onclick={() => actions.second(2)}">2</span>
-				  <span class="term">3</span>
-				  <span class="term">4</span>
+				  {state.imgList.map((item,index) =>{
+            return <button className={
+              index===state.index?"button-item button-special":"button-item"
+            }
+             onclick={() => actions.setIndex(index)}/>
+          })}
 			  </div>
     </div>
+  </div>
   </div>
 )
 
