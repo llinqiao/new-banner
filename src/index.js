@@ -65,8 +65,8 @@ const view = (state, actions) => (
             return<img src= {item}/>
           })}
         </div>
-          <img className="arrow right-arrow" onclick={() => actions.next()} src="./images/photo6.png"/>
-          <img className="arrow left-arrow" onclick={() => actions.previous()} src="./images/photo5.png"/>
+          <img className="arrow right-arrow" onclick={() => actions.next()} src="./images/photo8.png"/>
+          <img className="arrow left-arrow" onclick={() => actions.previous()} src="./images/photo7.png"/>
         <div class="buttons">
 				  {state.imgList.map((item,index) =>{
             return <button className={
