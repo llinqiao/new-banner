@@ -2,7 +2,7 @@ import { h, app } from "hyperapp"
 
 const state = {
   index: 0,
-  imgList:["./images/photo1.png","./images/photo2.png","./images/photo3.png","./images/photo4.png"]
+  imgList:["./rewrite-images/banner1.jpg","./rewrite-images/banner2.jpg","./rewrite-images/banner3.jpg","./rewrite-images/banner4.jpg","./rewrite-images/banner5.jpg","./rewrite-images/banner6.jpg"]
 }
 
 const actions = {
@@ -39,46 +39,26 @@ const actions = {
       }
     )
   },
-
-  setIndex:function(value){
-    return(
-      function(state){
-       var obj={
-         index:value
-        }
-       return obj;
-      } 
-    )
-  }
-
 }
 
 const view = (state, actions) => (
-  <div className="container">
-  <div className="code-box center">
-    <div className="container-border center">
+  <div className="bannerContent">
+    <div className="image">
+      <a href="https://imooc.com">  
         <div className="carousel"
          style={{
-          transform: "translateX(" + -1*state.index*500 + "px)"
+          transform: "translateX(" + -1*state.index*936 + "px)"
           }}>
           {state.imgList.map(item =>{
-            return<img src= {item}/>
+            return<img className="carousel-image"src= {item}/>
           })}
         </div>
-          <img className="arrow right-arrow" onclick={() => actions.next()} src="./images/photo8.png"/>
-          <img className="arrow left-arrow" onclick={() => actions.previous()} src="./images/photo7.png"/>
-        <div class="buttons">
-				  {state.imgList.map((item,index) =>{
-            return <button className={
-              index===state.index?"button-item button-special":"button-item"
-            }
-             onclick={() => actions.setIndex(index)}/>
-          })}
-			  </div>
+      </a>
+          <img className="arrow-left" onclick={() => actions.previous()} src="./rewrite-images/banner2.png"/>
+          <img className="arrow-right" onclick={() => actions.next()} src="./rewrite-images/banner3.png"/>
+      
     </div>
-  </div>
   </div>
 )
 
-app(state, actions, view, document.body)
-
+app(state, actions, view, document.getElementById("bannerContent"))
